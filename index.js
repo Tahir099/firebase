@@ -30,6 +30,7 @@ submitButton.addEventListener("click", () => {
     fileRef.getDownloadURL().then((url) => {
       console.log("File URL:", url);
       axios.post('https://localhost:44396/api/Users/AddUser', {
+
         photo_: url,
         name_: ad,
         surname_:soy,
@@ -39,10 +40,11 @@ submitButton.addEventListener("click", () => {
       })
       .then(response => {
         console.log(response.data);
+        location.reload();
       })
       .catch(error => {
         console.log(error);
-      });
+      })
 
     });
   });
